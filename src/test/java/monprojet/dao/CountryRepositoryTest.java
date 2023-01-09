@@ -46,7 +46,7 @@ public class CountryRepositoryTest {
     @Test
     @Sql("test-data.sql")
     void populationPaysTest(){
-        log.info("On compte les habitants du pays avec id_country 1. Il n'y a que Paris comme pays avec cet id_country. Paris a 12 millions d'habitants.");
+        log.info("On compte les habitants du pays qui a pour ID 1");
         assertEquals( 12 , countryDAO.populationPays(1));
 
     }
@@ -54,6 +54,7 @@ public class CountryRepositoryTest {
     @Test
     @Sql("test-data.sql")
     void listePopulationTest(){
+        log.info("On teste la listes de population");
         assertEquals(3, countryDAO.listePopulation().size());
     }
 
