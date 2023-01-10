@@ -48,7 +48,6 @@ public class CountryRepositoryTest {
     void populationPaysTest(){
         log.info("On compte les habitants du pays qui a pour ID 1");
         assertEquals( 12 , countryDAO.populationPays(1));
-
     }
 
     @Test
@@ -60,11 +59,32 @@ public class CountryRepositoryTest {
 
     @Test
     @Sql("test-data.sql")
+    void listePopulationTestFr(){
+        log.info("On teste la liste pour la France");
+        assertEquals(12, countryDAO.listePopulation().get(0).getPop());
+        assertEquals("France", countryDAO.listePopulation().get(0).getNom());
+    }
+
+    @Test
+    @Sql("test-data.sql")
+    void listePopulationTestUk(){
+        log.info("On teste la liste pour uk");
+        assertEquals(18, countryDAO.listePopulation().get(1).getPop());
+        assertEquals("United Kingdom", countryDAO.listePopulation().get(1).getNom());
+    }
+
+    @Test
+    @Sql("test-data.sql")
+    void listePopulationTestUs(){
+        log.info("On teste la liste pour les US");
+        assertEquals(27, countryDAO.listePopulation().get(2).getPop());
+        assertEquals("United States of America", countryDAO.listePopulation().get(2).getNom());
+    }
+
+    @Test
+    @Sql("test-data.sql")
     void listePopulationTest2(){
         assertEquals(12, countryDAO.listePopulation().get(0).getPop());
     }
-
-
-
 
 }
